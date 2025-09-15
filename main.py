@@ -40,6 +40,7 @@ class UrbanRoutesPage:
 
     def __init__(self, driver):
         self.driver = driver
+        self.wait = WebDriverWait(self.driver, 10)
 
     def set_from(self, from_address):
         from_box = self.wait.until(EC.element_to_be_clickable(self.from_field))
