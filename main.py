@@ -35,6 +35,7 @@ def retrieve_phone_code(driver) -> str:
 
 
 class UrbanRoutesPage:
+    #Campos de ruta
     from_field = (By.ID, 'from')
     to_field = (By.ID, 'to')
     #Selección de Comfort
