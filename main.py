@@ -52,6 +52,81 @@ class UrbanRoutesPage:
 
     def get_to(self):
         return self.driver.find_element(*self.to_field).get_property('value')
+#Selección de comfort
+
+    def click_request_taxi(self):
+        click_for_a_taxi = self.wait.until(EC.element_to_be_clickable(self.request_a_taxi_button))
+        click_for_a_taxi.click()
+
+    def click_comfort_tariff(self):
+        self.driver.find_element(*self.comfort_button).click()
+
+#Telephone
+    def click_on_telephone_number(self):
+        self.driver.find_element(*self.add_telephone_box).click()
+
+    def wait_for_emergent_window_phone_number(self):
+        self.wait.until(EC.visibility_of_element_located(self.emergent_window_phone))
+
+    def add_phone_number(self):
+            telephone = self.wait.until(EC.element_to_be_clickable(self.telephone_number_box))
+            telephone.clear()
+            telephone.send_keys(data.phone_number)
+
+    def click_submit_phone_button(self):
+        self.driver.find_element(*self.submit_phone_number_button).click()
+
+    def get_sms_code(self):
+        code = retrieve_phone_code(self.driver)
+        self.driver.find_element(*self.sms_code_box).send_keys(code)
+        self.driver.find_element(*self.submit_code_button).click()
+
+
+#Payment method
+    def click_payment_method(self):
+        self.driver.find_element(*self.payment_method_button).click()
+
+
+    def click_add_card_button(self):
+        self.driver.find_element(*self.add_card_button).click()
+
+    def add_card_number(self):
+        card = (self.driver.find_element(*self.card_number_box))
+        card.click()
+        card.send_keys(data.card_number)
+
+    def add_card_code(self):
+        code = self.driver.find_element(*self.code_box)
+        code.send_keys(data.card_code)
+
+    def click_to_activate_button(self):
+        self.driver.find_element(*self.activate_button).click()
+
+    def click_submit_card_button(self):
+        self.driver.find_element(*self.submit_card_button).click()
+
+    def close_payment_window(self):
+        self.driver.find_element(*self.close_button).click()
+
+#Message to driver
+    def write_message(self):
+        self.driver.find_element(*self.comment_box).send_keys(data.message_for_driver)
+
+#Blanket and Ice cream
+    def click_blanket(self):
+        self.driver.find_element(*self.tissues_slider).click()
+
+    def click_icecream(self):
+        self.driver.find_element(*self.plus_button).click()
+        self.driver.find_element(*self.plus_button).click()
+
+
+#Final request
+    def click_request_a_cab(self):
+        self.driver.find_element(*self.final_order_button).click()
+
+    def wait_for_looking_for_a_car_window(self):
+        self.wait.until.EC.visibility_of_element_located(self.look_for_a_car_window)
 
 
 
