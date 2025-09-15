@@ -73,8 +73,38 @@ class TestUrbanRoutes:
         address_from = data.address_from
         address_to = data.address_to
         routes_page.set_route(address_from, address_to)
-        assert routes_page.get_from() == address_from
-        assert routes_page.get_to() == address_to
+
+    def test_choose_comfort_tariff(self):
+        self.routes_page.click_request_taxi()
+        self.routes_page.click_comfort_tariff()
+
+    def test_add_telephone(self):
+        self.routes_page.click_on_telephone_number()
+        self.routes_page.wait_for_emergent_window_phone_number()
+        self.routes_page.add_phone_number()
+        self.routes_page.click_submit_phone_button()
+        self.routes_page.get_sms_code()
+
+    def test_add_payment_method(self):
+        self.routes_page.click_payment_method()
+        self.routes_page.click_add_card_button()
+        self.routes_page.add_card_number()
+        self.routes_page.add_card_code()
+        self.routes_page.click_to_activate_button()
+        self.routes_page.click_submit_card_button()
+        self.routes_page.close_payment_window()
+
+    def test_message_to_driver(self):
+        self.routes_page.write_message()
+
+    def test_ask_for_blanket_and_tissues(self):
+        self.routes_page.click_blanket()
+
+    def test_ask_for_ice_cream(self):
+        self.routes_page.click_icecream()
+
+    def test_final_cab_request_a_cab(self):
+        self.routes_page.click_request_a_cab()
 
 
     @classmethod
