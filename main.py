@@ -37,6 +37,42 @@ def retrieve_phone_code(driver) -> str:
 class UrbanRoutesPage:
     from_field = (By.ID, 'from')
     to_field = (By.ID, 'to')
+    #Selección de Comfort
+    type_picker = (By.CLASS_NAME, 'type-picker shown')
+    personal_button = (By.XPATH, '//div[text()="Personal"]')
+    request_a_taxi_button = (By.XPATH, '//button[@class="button round"]')
+    tariff_picker = (By.CLASS_NAME, 'tariff-picker shown')
+    comfort_button = (By.XPATH, '//div[text()="Comfort"]')
+
+    #Telephone
+    add_telephone_box = (By.CSS_SELECTOR, "div.np-text")
+    telephone_number_box = (By.ID, 'phone')
+    emergent_window_phone = (By.XPATH, '//div[text()="Introduce tu número de teléfono"]')
+    submit_phone_number_button = (By.XPATH, '//button[@class="button full"]')
+    sms_code_box = (By.ID, 'code')
+    submit_code_button = (By.XPATH, '//button[text()="Confirmar"]')
+
+
+    #Payment Method
+    payment_method_button = (By.CLASS_NAME, 'pp-text')
+    emergent_window_payment_method = (By.XPATH, '//div[text()="Método de pago"]')
+    add_card_button = (By.XPATH, '//div[text()="Agregar tarjeta"]')
+    card_number_box = (By.CSS_SELECTOR, 'input.card-input')
+    code_box = (By.CSS_SELECTOR, 'input#code.card-input')
+    submit_card_button = (By.XPATH, '//button[text()="Agregar"]')
+    activate_button = (By.CSS_SELECTOR, 'div.pp-buttons')
+    close_button = (By.XPATH, '/html/body/div/div/div[2]/div[2]/div[1]/button')
+
+    #Message to driver
+    comment_box = (By.ID, 'comment')
+
+    #Add tissues and Ice cream
+    tissues_slider = (By.XPATH, '/html/body/div/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div/span')
+    plus_button = (By.XPATH, '/html/body/div/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[3]')
+
+    #Final request
+    final_order_button = (By.CLASS_NAME, 'smart-button-main')
+    look_for_a_car_window = (By.XPATH, '//div[text()="order-header-title")]')
 
     def __init__(self, driver):
         self.driver = driver
