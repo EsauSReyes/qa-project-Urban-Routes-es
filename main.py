@@ -47,6 +47,10 @@ class UrbanRoutesPage:
     def set_to(self, to_address):
         self.driver.find_element(*self.to_field).send_keys(to_address)
 
+    def set_route(self, from_address, to_address):
+            self.set_from(from_address)
+            self.set_to(to_address)
+
     def get_from(self):
         return self.driver.find_element(*self.from_field).get_property('value')
 
