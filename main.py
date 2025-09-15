@@ -42,7 +42,9 @@ class UrbanRoutesPage:
         self.driver = driver
 
     def set_from(self, from_address):
-        self.driver.find_element(*self.from_field).send_keys(from_address)
+        from_box = self.wait.until(EC.element_to_be_clickable(self.from_field))
+        from_box.clear()
+        from_box.send_keys(from_address)
 
     def set_to(self, to_address):
         self.driver.find_element(*self.to_field).send_keys(to_address)
